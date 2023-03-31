@@ -35,13 +35,13 @@ app.listen(PORT, () => {
 });
 
 app.post('/contact', (req, res) => {
-    console.log(req.body.file);
-    if (!req.body.file)
+    console.log(req.body.name);
+    if (!req.body.name)
     {
         // send error
         return res.status(400).send('csv-file required');
     }
-    res.send(req.header('Content-Type'));
+    res.send(req.header('Content-Type') + "\n" + req.body.name);
 })
 
  // Console will print the message
