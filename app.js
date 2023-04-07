@@ -1,4 +1,6 @@
-const express = require('express');
+import formidable, {errors as formidableErrors} from 'formidable';
+import express from 'express';
+
 const app = express();
 const PORT = 3000;
 
@@ -35,13 +37,16 @@ app.listen(PORT, () => {
 });
 
 app.post('/contact', (req, res) => {
-    console.log(req.body.name);
-    if (!req.body.name)
-    {
-        // send error
-        return res.status(400).send('csv-file required');
-    }
-    res.send(req.header('Content-Type') + "\n" + req.body.name);
+    const form = formidable({});
+
+    form.parse(req, (err, fields, files) => {
+        if (err) {
+          next(err);
+          return;
+        }
+        res.json({ fields, files });
+      });
+    
 })
 
  // Console will print the message

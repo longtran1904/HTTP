@@ -78,6 +78,41 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "contact",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"description": "This is a file csv",
+							"type": "file",
+							"src": "/Users/longtran/Desktop/projects-fall-2021.csv"
+						},
+						{
+							"key": "name",
+							"value": "Sent by Long Tran",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/contact",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"contact"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
